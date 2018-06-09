@@ -1,3 +1,4 @@
+package businesslogic;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -9,6 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import model.Product;
 
 /**
  * Servlet implementation class Servlet02
@@ -38,11 +41,7 @@ public class Servlet02 extends HttpServlet {
 		sess.setAttribute("sum", sum);
 		sess.setAttribute("avg", avg);
 
-		StringBuilder sb = new StringBuilder();
-		sb.append("<h1> Cena obliczona, zobacz podsumowanie</h1>")
-				.append("<a href = \"/TechSiec_1/Servlet03\"> Klik</a> ");
-		response.getWriter().append(sb);
-
+		getServletContext().getRequestDispatcher("/WEB-INF/summary.jsp").forward(request, response);
 	}
 
 }
